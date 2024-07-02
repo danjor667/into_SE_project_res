@@ -24,7 +24,8 @@ features_names = ["Pregnancies",
                   "Insulin",
                   "BMI",
                   "DiabetesPedigreeFunction",
-                  "Age"]
+                  "Age"
+                  ]
 
 X_new = np.array(X)
 
