@@ -1,14 +1,14 @@
 import requests
 
-url = "http://into-se-project-res.onrender.com/predict/"
+url = "http://localhost:8000/predict/"
 
 data = {"Pregnancies": 10,
-        "Glucose": 132,
+        "Glucose": 182,
         "BloodPressure": 84,
         "SkinThickness": 40,
         "Insulin":105,
         "BMI":33.6,
-        "DiabetesPedigreeFunction": 0.201,
+        "DiabetesPedigreeFunction": 0.501,
         "Age": 20
         }
 

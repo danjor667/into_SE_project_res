@@ -36,8 +36,8 @@ class  DiabetesPredictor(APIView):
             scaled_X = SCALER.transform(X)
             scaled_X = pd.DataFrame(scaled_X, columns=features_names)
             prediction = MODEL.predict(scaled_X)
-            probability = MODEL.decision_function(scaled_X)
-            return Response({"prediction": prediction, "probability": probability}, status=status.HTTP_200_OK)
+            probability = MODEL.predict_proba(scaled_X)
+            return Response({"prediction": prediction, "probability": probability[0]}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": f"{e}"}, status=status.HTTP_400_BAD_REQUEST)
 
