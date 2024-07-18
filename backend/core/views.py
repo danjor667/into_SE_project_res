@@ -1,4 +1,4 @@
-
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -9,6 +9,9 @@ import pandas as pd
 import numpy as np
 
 
+
+def home(request):
+    return HttpResponse("im testing the home page")
 
 class  DiabetesPredictor(APIView):
     renderer_classes = [JSONRenderer]

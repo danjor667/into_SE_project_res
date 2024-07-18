@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import predict_view
+from .views import predict_view, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home, name="home"),
     path("predict/", predict_view, name="predict")
 ]
