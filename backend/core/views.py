@@ -11,7 +11,7 @@ import numpy as np
 
 
 def home(request):
-    return HttpResponse("im testing the home page")
+    return HttpResponse("Diabetes predictions")
 
 class  DiabetesPredictor(APIView):
     renderer_classes = [JSONRenderer]

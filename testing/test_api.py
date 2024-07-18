@@ -1,6 +1,6 @@
 import requests
 
-url = "http://127.0.0.1:8000/predict/"
+url = "http://into-se-project-res.onrender.com/predict/"
 
 data = {"Pregnancies": 10,
         "Glucose": 132,
