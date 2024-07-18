@@ -14,11 +14,6 @@ class  DiabetesPredictor(APIView):
     renderer_classes = [JSONRenderer]
     def post(self, request, *args, **kwargs):
         try:
-            # with open(os.path.join(BASE, "ML/new_model.pkl"), "rb") as file1:
-            #     MODEL = pickle.load(file1)
-            #
-            # with open(os.path.join(BASE, "ML/scaler.pkl"), "rb") as file2:
-            #     SCALER = pickle.load(file2)
 
             data = request.data
             features_names = ["Pregnancies",
@@ -35,11 +30,11 @@ class  DiabetesPredictor(APIView):
             X = np.array(X)
             X = pd.DataFrame(X, columns=features_names)
 
-            scaled_X = SCALER.fit_transform(X)
+            scaled_X = SCALER.transform(X)
             scaled_X = pd.DataFrame(scaled_X, columns=features_names)
             prediction = MODEL.predict(scaled_X)
             probability = MODEL.decision_function(scaled_X)
-            return Response({"prediction": prediction[0], "probability": probability[0]}, status=status.HTTP_200_OK)
+            return Response({"prediction": prediction, "probability": probability}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": f"{e}"}, status=status.HTTP_400_BAD_REQUEST)
 

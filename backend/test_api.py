@@ -2,14 +2,14 @@ import requests
 
 url = "http://127.0.0.1:8000/predict/"
 
-data = {"Pregnancies": 4,
-        "Glucose": 110,
-        "BloodPressure": 89,
-        "SkinThickness": 34,
-        "Insulin":98,
-        "BMI":36.6,
-        "DiabetesPedigreeFunction": 0.154,
-        "Age": 25
+data = {"Pregnancies": 10,
+        "Glucose": 132,
+        "BloodPressure": 84,
+        "SkinThickness": 40,
+        "Insulin":105,
+        "BMI":33.6,
+        "DiabetesPedigreeFunction": 0.201,
+        "Age": 20
         }
 
 
