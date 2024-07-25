@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from rest_framework import status
+from rest_framework import status, authentication
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 
 from .load_model import BASE, MODEL, SCALER
 import pandas as pd
@@ -15,6 +16,8 @@ def home(request):
 
 class  DiabetesPredictor(APIView):
     renderer_classes = [JSONRenderer]
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
     def post(self, request, *args, **kwargs):
         try:
 
